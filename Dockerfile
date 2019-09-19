@@ -1,10 +1,9 @@
 FROM haskell:8
 
-LABEL  maintainer="Stephen Steiner <ntwrkguru@gmail.com>"
+LABEL  maintainer="Lukas Grassauer <entze@grassauer.eu>"
 
 # Install dependencies
-RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
-    && apt-get update -y \
+RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
        texlive-full \
        texlive-xetex latex-xcolor \
@@ -16,9 +15,11 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
        lmodern \
        libghc-text-icu-dev \
        zip \
+       tar \
+       make \
     && apt-get clean
 
 # Install cabal and then pandoc + citeproc
-RUN cabal update && cabal install pandoc pandoc-citeproc --force-reinstalls
+RUN stack install pandoc pandoc-citeproc
 
 WORKDIR /build
