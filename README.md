@@ -29,7 +29,7 @@ A `/build` directory is created in the container, which can be mapped for use wi
 The following example will build rst.pdf from docs/test.rst
 
 ```yaml
-image: ntwrkguru/pandoc-gitlab-ci
+image: entze/pandoc-gitlab-ci
 
 PDF:
   script:
