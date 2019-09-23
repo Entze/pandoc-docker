@@ -7,7 +7,7 @@ Docker image for the source distribution of [Pandoc](http://johnmacfarlane.net/p
 `cd` to the dir with your source files, then:
 
 ```bash
-$ docker run -v $PWD:/build ntwrkguru/pandoc-gitlab-ci pandoc [OPTIONS] [FILES]
+$ docker run -v $PWD:/build entze/pandoc-gitlab-ci pandoc [OPTIONS] [FILES]
 ```
 From `--help`
 
